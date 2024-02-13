@@ -20,11 +20,11 @@ module.exports = {
       allowNull: false,
       type: Sequelize.STRING
     },
-    generous: {
+    gender: {
       allowNull: false,
       type: Sequelize.STRING
     },
-    studio: { 
+      studio: { 
       allowNull: false,
       type: Sequelize.STRING
     },
