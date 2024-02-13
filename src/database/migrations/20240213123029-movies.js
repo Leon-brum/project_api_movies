@@ -34,7 +34,7 @@ module.exports = {
       launch: {
       allowNull: false,
       type: Sequelize.DATE
-    },
+    }
    });
   },
 

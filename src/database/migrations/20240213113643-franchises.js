@@ -22,16 +22,8 @@ module.exports = {
 
         launch: {
           allowNull: false,
-          type: Sequelize.DATE
+          type: Sequelize.INTEGER
         },
-        createdAt: {
-          allowNull: false,
-          type: Sequelize.DATE      
-        },
-         updateAt: {
-          allowNull: false,
-          type: Sequelize.DATE
-         }
       })
   },
 
