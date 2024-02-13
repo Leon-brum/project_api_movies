@@ -23,7 +23,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-        franchises: {
+      franchises: {
         allowNull: false,
         type: Sequelize.STRING
       },
