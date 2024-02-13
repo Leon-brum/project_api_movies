@@ -23,35 +23,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      moviesId:{
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        field: 'movies_id',
-        references:{
-          model:'movies',
-          key:'id',
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
-      },
-      franchises: {
+        franchises: {
         allowNull: false,
         type: Sequelize.STRING
       },
       actors: {
         allowNull: false,
         type: Sequelize.STRING
-      },
-      actorsId: {
-        allowNull:false,
-        type: Sequelize.INTEGER,
-        field: 'actors_id',
-        references: {
-          model: 'actors',
-          key: 'id',
-        },
-        onDelete: 'CASCADE',
-        onDelete: 'CASCADE'
       },
       createdAt: {
         allowNull: false,

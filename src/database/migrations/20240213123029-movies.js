@@ -1,6 +1,5 @@
 'use strict';
 
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
      /**
@@ -28,22 +27,11 @@ module.exports = {
       allowNull: false,
       type: Sequelize.STRING
     },
-    director: {
+      director: {
       allowNull: false,
       type: Sequelize.STRING
     },
-    actorsId: { /** RELACIONAL */
-      allowNull:false,
-      type: Sequelize.INTEGER,
-      field: 'actors_id',
-      references: {
-        model: 'actors',
-        key: 'id',
-      },
-      onDelete: 'CASCADE',
-      onUpdate: 'CASCADE'      
-    },
-    launch: {
+      launch: {
       allowNull: false,
       type: Sequelize.DATE
     },
