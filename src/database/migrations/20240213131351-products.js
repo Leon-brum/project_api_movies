@@ -48,17 +48,6 @@ module.exports = {
         onDelete:'CASCADE',
         onUpdate:'CASCADE'
       },
-      studioId:{
-        allowNull:false,
-        type: Sequelize.INTEGER,
-        field: 'studio_id',
-        references:{
-          model:'studios',
-          key:'id',
-        },
-        onDelete:'CASCADE',
-        onUpdate:'CASCADE'
-      },
       directorsId: {
         allowNull:false,
         type: Sequelize.INTEGER,
@@ -70,7 +59,6 @@ module.exports = {
         onDelete:'CASCADE',
         onUpdate:'CASCADE'
       }
-
     })
   },
 
