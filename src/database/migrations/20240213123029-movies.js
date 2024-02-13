@@ -34,15 +34,7 @@ module.exports = {
       launch: {
       allowNull: false,
       type: Sequelize.DATE
-    },
-    createdAt: {
-      allowNull: false,
-      type: Sequelize.DATE      
-    },
-     updateAt: {
-      allowNull: false,
-      type: Sequelize.DATE
-     }
+    }
    });
   },
 

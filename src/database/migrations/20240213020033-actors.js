@@ -22,14 +22,6 @@ module.exports = {
       age: {
         allowNull: false,
         type: Sequelize.INTEGER
-      },
-      createdAT: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updateAt: {
-        allowNull:false,
-        type: Sequelize.DATE
       }
     });
   },
