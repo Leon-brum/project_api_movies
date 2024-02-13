@@ -34,7 +34,7 @@ Franchise.init({
     sequelize: db,
     underscored: true,
     modelName:'franchises',
-    timestamps: true,
+    timestamps: false,
 })
 
 export default Franchise

@@ -35,7 +35,7 @@ Actor.init({
     sequelize: db,
     underscored: true,
     modelName: 'actors',
-    timestamps: true,
+    timestamps: false,
 });
 
 export default Actor

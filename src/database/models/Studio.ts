@@ -44,7 +44,7 @@ Studio.init({
     sequelize: db,
     underscored: true,
     modelName: 'studios',
-    timestamps:true,
+    timestamps:false,
 })
 
 export default Studio
