@@ -8,12 +8,24 @@ module.exports = {
     * @param {*} Sequelize
     */
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('products',{
+    await queryInterface.createTable('products', {
       id: {
         allowNull: false,
-        autoIncrement: true,
+        autoIncrement:true,
         primaryKey: true,
         type: Sequelize.INTEGER
+      },
+      movieId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        field: 'movies_id',
+        references:{
+          model:'movies',
+          key:'id',
+        },
+        primaryKey: true,
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       },
       actorsId: {
         allowNull: false,
@@ -26,29 +38,7 @@ module.exports = {
         onDelete: 'CASCADE',
         onUpdate:'CASCADE'
       }, 
-      moviesId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        field: 'movies_id',
-        references:{
-          model:'movies',
-          key:'id',
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
-      },
-      franchisesId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        field: 'franchises_id',
-        references:{
-          model:'franchises',
-          key:'id',
-        },
-        onDelete:'CASCADE',
-        onUpdate:'CASCADE'
-      },
-      directorsId: {
+      directorId: {
         allowNull:false,
         type: Sequelize.INTEGER,
         field: 'directors_id',
@@ -58,7 +48,18 @@ module.exports = {
         },
         onDelete:'CASCADE',
         onUpdate:'CASCADE'
-      }
+      },
+      studioId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        field: 'studio_id',
+        references:{
+          model:'studios',
+          key:'id',
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      },
     })
   },
 

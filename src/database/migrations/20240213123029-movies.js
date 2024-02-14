@@ -23,15 +23,7 @@ module.exports = {
       allowNull: false,
       type: Sequelize.STRING
     },
-      studio: { 
-      allowNull: false,
-      type: Sequelize.STRING
-    },
-      director: {
-      allowNull: false,
-      type: Sequelize.STRING
-    },
-      launch: {
+    launch: {
       allowNull: false,
       type: Sequelize.DATE
     }

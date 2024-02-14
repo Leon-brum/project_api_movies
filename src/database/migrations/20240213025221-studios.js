@@ -19,18 +19,6 @@ module.exports = {
         allowNull: false, 
         type: Sequelize.STRING
       },
-      movies: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      franchises: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      actors: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
      });
   },
 

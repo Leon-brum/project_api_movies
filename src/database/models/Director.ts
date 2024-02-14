@@ -14,10 +14,6 @@ InferCreationAttributes<Director>>{
   declare name: string;
 
   declare age: number;
-
-  declare studio: string;
-
-  declare movies: string;
 }
 
 Director.init({
@@ -34,15 +30,7 @@ Director.init({
   age: {
     allowNull:false,
     type: DataTypes.DATE
-  },
-  studio:{
-    allowNull:false,
-    type: DataTypes.STRING
-  },
-  movies:{
-    allowNull: false,
-    type: DataTypes.STRING
-  }  
+  }, 
 }, {
   sequelize: db,
   underscored: true,

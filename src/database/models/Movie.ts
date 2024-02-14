@@ -15,10 +15,6 @@ InferCreationAttributes<Movie>>{
 
   declare gender: string;
 
-  declare studio: string;
-
-  declare director: string;
-
   declare launch: Date;
 }
 
@@ -37,15 +33,7 @@ Movie.init({
     allowNull: false,
     type: DataTypes.STRING
   },
-    studio: { 
-    allowNull: false,
-    type: DataTypes.STRING
-  },
-    director: {
-    allowNull: false,
-    type: DataTypes.STRING
-  },
-    launch: {
+  launch: {
     allowNull: false,
     type: DataTypes.DATE
   },
