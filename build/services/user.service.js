@@ -17,10 +17,12 @@ class UserService {
     constructor(userModel = new UserModel_1.default()) {
         this.userModel = userModel;
     }
-    getAllUsers() {
+    getByEmail(email) {
         return __awaiter(this, void 0, void 0, function* () {
-            const users = yield this.userModel.findAll();
-            return { status: 'SUCCESSFUL', data: users };
+            const userEmail = yield this.userModel.findByEmail(email);
+            if (!userEmail)
+                return { status: 'UNAUTHORIZED', data: { message: 'email ou password invalidos!' } };
+            return { status: 'SUCCESSFUL', data: userEmail };
         });
     }
     getById(id) {
@@ -28,10 +30,10 @@ class UserService {
             const user = yield this.userModel.findById(id);
             if (!user)
                 return {
-                    status: 'NOT_FOUND',
-                    data: { message: `O id ${id} desse usuario nao foi encontrado` }
+                    status: 401,
+                    message: { message: `O id ${id} não foi encontrado!` }
                 };
-            return { status: 'SUCCESSFUL', data: user };
+            return { status: 200, message: { role: user.role } };
         });
     }
 }

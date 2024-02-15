@@ -1,7 +1,7 @@
 import IUser from './IUser';
-import { ID } from '..';
+// import { ID } from '..';
 
 export interface IUserModel {
-  findAll(): Promise<IUser[]>,
-  findById(id: ID): Promise<IUser | null>
+  findByEmail(email: IUser['email']): Promise<IUser | null>
+  findById(id: string): Promise<IUser | null>
 }
