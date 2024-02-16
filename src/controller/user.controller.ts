@@ -1,4 +1,4 @@
-import { compareSync } from 'bcryptjs';
+import { compareSync, hashSync } from 'bcryptjs';
 import { Request, Response } from 'express';
 import UserService from '../services/user.service';
 import mapStatusHTTP from '../utils/MapStatusHTTP';
@@ -39,5 +39,17 @@ export default class UserController {
       status: number, message: string
     };
     return res.status(user.status).json(user.message);
+  }
+
+  public async createUser(req: Request, res: Response): Promise<Response> {
+    const { name, role, email, password } = req.body;
+    const hash = hashSync(password, 10);
+    const newUser = await this.userService.createUser(
+      name,
+      role,
+      email,
+      hash,
+    )
+    return res.status(mapStatusHTTP(newUser.status)).json({ menssage: 'Usuario cadastrado com sucesso!' });
   }
 }

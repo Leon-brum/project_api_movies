@@ -14,4 +14,6 @@ router.post('/',
 userValidations.login,
 (req, res) => userController.login(req, res));
 
+router.post('/create', (req, res) => userController.createUser(req, res));
+
 export default router;

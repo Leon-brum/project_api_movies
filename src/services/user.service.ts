@@ -1,7 +1,7 @@
 import UserModel from '../model/UserModel';
 import IUser from '../interfaces/User/IUser';
 import { IUserModel } from '../interfaces/User/IUserModel';
-import { ServiceResponse } from '../utils/ServiceResponse'; 
+import { ServiceMessage, ServiceResponse } from '../utils/ServiceResponse'; 
 
 export default class UserService {
   constructor(private userModel: IUserModel = new UserModel()) { }
@@ -23,4 +23,20 @@ export default class UserService {
     return { status: 200, message: { role: user.role }};
   }
 
+  public async createUser(
+    name: string,
+    role: string,
+    email: string,
+    password: string
+  ): Promise<ServiceResponse<IUser | ServiceMessage>> {
+    const emailExist = await this.userModel.findByEmail(email);
+    if(emailExist) return { status: 'CONFLICT', data: { message: 'Email ja cadastrado!' }};
+    const user = await this.userModel.createUser(
+    name,
+    role,
+    email,
+    password,
+    );
+    return { status: 'CREATE', data: user };
+  }
 }

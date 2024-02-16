@@ -14,4 +14,11 @@ export default class UserModel implements IUserModel {
     const userId = await this.model.findOne({ where: { id } });
     return userId;
   }
+
+  async createUser(name: string, role: string, email: string, password: string): Promise<IUser> {
+    const user = await this.model.create({
+      name, role, email, password
+    });
+    return user;
+  }
 }

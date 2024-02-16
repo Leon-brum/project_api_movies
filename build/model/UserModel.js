@@ -29,5 +29,13 @@ class UserModel {
             return userId;
         });
     }
+    createUser(name, role, email, password) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const user = yield this.model.create({
+                name, role, email, password
+            });
+            return user;
+        });
+    }
 }
 exports.default = UserModel;

@@ -39,5 +39,14 @@ class UserService {
             return { status: 200, message: { role: user.role } };
         });
     }
+    createUser(name, role, email, password) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const emailExist = yield this.userModel.findByEmail(email);
+            if (emailExist)
+                return { status: 'CONFLICT', data: { message: 'Email ja cadastrado!' } };
+            const user = yield this.userModel.createUser(name, role, email, password);
+            return { status: 'SUCCESSFUL', data: user };
+        });
+    }
 }
 exports.default = UserService;

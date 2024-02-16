@@ -5,6 +5,6 @@ import actorRouter from './actorRouter';
 const router = Router();
 
 router.use('/login', userRouter);
-router.use('/actor',actorRouter);
+router.use('/actor', actorRouter);
 
 export default router;
