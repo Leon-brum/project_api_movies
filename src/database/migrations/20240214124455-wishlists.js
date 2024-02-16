@@ -6,7 +6,7 @@ module.exports = {
     await queryInterface.createTable('wishlists', {
       id: {
         allowNull: false,
-        autoIncrement:true,
+        autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
@@ -14,7 +14,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
         field: 'user_id',
-        references:{
+        references: {
           model:'users',
           key:'id',
         },
@@ -25,7 +25,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
         field: 'movies_id',
-        references:{
+        references: {
           model:'movies',
           key:'id',
         },

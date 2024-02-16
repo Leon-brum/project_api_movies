@@ -5,12 +5,12 @@ import { IUserModel } from "../interfaces/User/IUserModel";
 export default class UserModel implements IUserModel {
   private model = User;
 
-  async findAll(): Promise<IUser[]> {
-    const users = await this.model.findAll();
-    return users;
+  async findByEmail(email: string): Promise<IUser | null> {
+    const userEmail = await this.model.findOne({ where: { email } });
+    return userEmail;
   }
-  async findById(id: number): Promise<IUser | null> {
-    const user = await this.model.findByPk(id);
-    return user;
+  async findById(id: string): Promise<IUser | null> {
+    const userId = await this.model.findOne({ where: { id } });
+    return userId;
   }
 }

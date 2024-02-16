@@ -17,16 +17,16 @@ class UserModel {
     constructor() {
         this.model = User_1.default;
     }
-    findAll() {
+    findByEmail(email) {
         return __awaiter(this, void 0, void 0, function* () {
-            const users = yield this.model.findAll();
-            return users;
+            const userEmail = yield this.model.findOne({ where: { email } });
+            return userEmail;
         });
     }
     findById(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            const user = yield this.model.findByPk(id);
-            return user;
+            const userId = yield this.model.findOne({ where: { id } });
+            return userId;
         });
     }
 }

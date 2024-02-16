@@ -5,7 +5,8 @@ const userController = new UserController()
 
 const router = Router();
 
-router.get('/', (req: Request, res: Response) => userController.getAllUsers(req, res));
-router.get('/:id', (req: Request, res: Response) => userController.getUserById(req, res));
+router.get('/role', (req: Request, res: Response) => userController.findById(req, res));
+
+router.post('/', (req, res) => userController.login(req, res));
 
 export default router;
