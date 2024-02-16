@@ -1,21 +1,21 @@
 import { Request, Response } from 'express';
-import ActorService from '../services/actor.service';
+import MovieService from '../services/movie.service';
 import mapStatusHTTP from '../utils/MapStatusHTTP';
 
 
-export default class ActorController {
+export default class Movieontroller {
     constructor(
-        private actorService = new ActorService()
-    ){ }
+        private movieService = new MovieService()
+    ) {}
 
-    public async findAll(_req: Request, res: Response):Promise<Response>{
-        const serviceResponse = await this.actorService.getALL();
+    public async findAll (_req: Request, res: Response): Promise<Response>{
+        const serviceResponse = await this.movieService.getAll();
         return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data)
     }
 
-    public async findById(req: Request, res: Response):Promise<Response>{
-        const { id } = req.params; 
-        const serviceResponse = await this.actorService.getById(Number(id));
+    public async finById(req: Request, res: Response): Promise<Response>{
+        const { id } = req.params;
+        const serviceResponse = await this.movieService.getById(Number(id));
 
         if (serviceResponse.status !== 'SUCCESSFUL'){
             return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data)
@@ -23,23 +23,24 @@ export default class ActorController {
         return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data)
     }
 
-    public async createActor(req:Request, res:Response):Promise<Response>{
-        const { name, age } = req.body;
-        const serviceResponse = await this.actorService.createActor(name, age);
+    public async creatMovie(req:Request, res: Response): Promise<Response>{
+        const { name, gender, launch } = req.body;
+        const serviceResponse = await this.movieService.createMovie( name, gender, launch);
 
         if (serviceResponse.status !== 'SUCCESSFUL'){
             return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data)
-        } 
+        }
         return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data)
     }
 
-    public async deleteActor (req:Request, res: Response):Promise<Response>{
+    public async deleteMovie(req: Request, res: Response): Promise<Response>{
         const { id } = req.params;
-        const serviceResponse = await this.actorService.deleteActor(Number(id));
+        const serviceResponse = await this.movieService.deleteMovie(Number(id));
 
-        if (serviceResponse.status !== 'SUCCESSFUL'){
+        if(serviceResponse.status !== 'SUCCESSFUL'){
             return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data)
         }
         return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data)
     }
 }
+
