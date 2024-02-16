@@ -15,5 +15,19 @@ export default class ActorModel implements IActorModel {
          return actor;
      }
     
+    async createActor(name: string, age: number): Promise<IActor> {
+         const actor = await this.model.create({
+            name,
+            age
+        }) 
+        return actor;
+     }
+    
+    async deleteActor(id: number): Promise<boolean> {
+        const rowsDeleted = await this.model.destroy({
+            where: { id } 
+        })
+        return rowsDeleted > 0
+    }
 }
 

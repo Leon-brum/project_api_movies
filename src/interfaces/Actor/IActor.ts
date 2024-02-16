@@ -1,7 +1,8 @@
 import { Identifiable } from '..';
+import { ID } from '..';
 
 export default interface Actor extends Identifiable {
-    id: number,
+    id: ID,
     name: string,
     age: number
 }

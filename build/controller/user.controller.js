@@ -49,7 +49,17 @@ class UserController {
             const { name, role, email, password } = req.body;
             const hash = (0, bcryptjs_1.hashSync)(password, 10);
             const newUser = yield this.userService.createUser(name, role, email, hash);
-            return res.status((0, MapStatusHTTP_1.default)(newUser.status)).json(newUser.data);
+            return res.status((0, MapStatusHTTP_1.default)(newUser.status)).json({ menssage: 'Usuario cadastrado com sucesso!' });
+        });
+    }
+    deleteUser(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const serviceResponse = yield this.userService.deleteUser(Number(id));
+            if (serviceResponse.status !== 'SUCCESSFUL') {
+                return res.status((0, MapStatusHTTP_1.default)(serviceResponse.status)).json(serviceResponse.data);
+            }
+            return res.status((0, MapStatusHTTP_1.default)(serviceResponse.status)).json(serviceResponse.data);
         });
     }
 }

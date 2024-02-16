@@ -7,6 +7,7 @@ import 'dotenv';
 const JWT_SECRET = process.env.JWT_SECRET || 'jwt_secret';
 
 export default class userValidation {
+  // eslint-disable-next-line complexity
   static login(req: Request, res: Response, next: NextFunction): Response | void {
     const login = req.body;
     const reqKeys = ['email', 'password'];

@@ -37,5 +37,11 @@ class UserModel {
             return user;
         });
     }
+    deleteUser(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const rowsDeleted = yield this.model.destroy({ where: { id } });
+            return rowsDeleted > 0;
+        });
+    }
 }
 exports.default = UserModel;

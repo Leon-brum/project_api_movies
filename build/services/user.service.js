@@ -45,7 +45,15 @@ class UserService {
             if (emailExist)
                 return { status: 'CONFLICT', data: { message: 'Email ja cadastrado!' } };
             const user = yield this.userModel.createUser(name, role, email, password);
-            return { status: 'SUCCESSFUL', data: user };
+            return { status: 'CREATE', data: user };
+        });
+    }
+    deleteUser(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const exist = yield this.userModel.deleteUser(id);
+            if (!exist)
+                return { status: 'NOT_FOUND', data: { message: 'Usuario nao encontrado!' } };
+            return { status: 'SUCCESSFUL', data: { message: 'Usuario deletado!' } };
         });
     }
 }
