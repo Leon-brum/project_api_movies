@@ -30,6 +30,6 @@ Movie.init({
     sequelize: _1.default,
     underscored: true,
     modelName: 'movies',
-    timestamps: true,
+    timestamps: false,
 });
 exports.default = Movie;

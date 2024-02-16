@@ -31,6 +31,6 @@ export default class ActorService {
     public async deleteMovie(id:ID): Promise<ServiceResponse<ServiceMessage>>{
         const exist = await this.movieModel.deleteMovie(id);
         if(!exist) return { status: 'NOT_FOUND', data: { message: 'Id não encontrado' } }
-        return { status: 'SUCCESSFUL', data: { message: 'Ator Deletado' } }
+        return { status: 'SUCCESSFUL', data: { message: 'Filme Deletado' } }
     }
 }
