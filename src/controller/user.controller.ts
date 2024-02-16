@@ -52,4 +52,13 @@ export default class UserController {
     )
     return res.status(mapStatusHTTP(newUser.status)).json({ menssage: 'Usuario cadastrado com sucesso!' });
   }
+
+  public async deleteUser(req: Request, res: Response): Promise<Response>{
+    const { id } = req.params;
+    const serviceResponse = await this.userService.deleteUser(Number(id));
+    if(serviceResponse.status !== 'SUCCESSFUL') {
+      return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data);
+    }
+    return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data);
+  }
 }

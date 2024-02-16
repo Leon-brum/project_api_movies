@@ -21,4 +21,9 @@ export default class UserModel implements IUserModel {
     });
     return user;
   }
+
+  async deleteUser(id: number): Promise<boolean> {
+    const rowsDeleted = await this.model.destroy({ where: { id } });
+    return rowsDeleted > 0;
+  }
 }

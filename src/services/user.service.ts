@@ -39,4 +39,10 @@ export default class UserService {
     );
     return { status: 'CREATE', data: user };
   }
+
+  public async deleteUser(id: number): Promise<ServiceResponse<ServiceMessage>>{
+    const exist = await this.userModel.deleteUser(id);
+    if(!exist) return {status: 'NOT_FOUND', data: { message: 'Usuario nao encontrado!' }}
+    return {status: 'SUCCESSFUL', data: { message: 'Usuario deletado!' }}
+  }
 }

@@ -1,5 +1,5 @@
 import IUser from './IUser';
-// 
+import { ID } from '..';
 
 
 export interface IUserModel {
@@ -11,4 +11,5 @@ export interface IUserModel {
     email: IUser['email'],
     password: IUser['password']
   ): Promise<IUser>;
+  deleteUser(id: ID): Promise<boolean>
 }

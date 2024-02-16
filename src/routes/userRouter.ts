@@ -16,4 +16,6 @@ userValidations.login,
 
 router.post('/create', (req, res) => userController.createUser(req, res));
 
+router.delete('/:id', (req: Request, res: Response) => userController.deleteUser(req, res));
+
 export default router;
