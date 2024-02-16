@@ -1,7 +1,7 @@
-import { compareSync } from "bcryptjs";
-import { Request, Response } from "express";
-import UserService from "../services/user.service";
-import mapStatusHTTP from "../utils/MapStatusHTTP";
+import { compareSync } from 'bcryptjs';
+import { Request, Response } from 'express';
+import UserService from '../services/user.service';
+import mapStatusHTTP from '../utils/MapStatusHTTP';
 import jwt from '../jwt/jwt';
 import IUser from '../interfaces/User/IUser';
 
@@ -30,11 +30,14 @@ export default class UserController {
 
     return res.status(mapStatusHTTP(status)).json({ token });
   }
+
   public async findById(req: token, res: Response): Promise<Response> {
     const { token } = req;
     if (!token) return res.status(401).json({ message: 'missing token' });
 
-    const user = await this.userService.getById(token.id) as { status: number, message: string };
+    const user = await this.userService.getById(token.id) as {
+      status: number, message: string
+    };
     return res.status(user.status).json(user.message);
   }
 }

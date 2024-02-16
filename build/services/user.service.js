@@ -21,7 +21,10 @@ class UserService {
         return __awaiter(this, void 0, void 0, function* () {
             const userEmail = yield this.userModel.findByEmail(email);
             if (!userEmail)
-                return { status: 'UNAUTHORIZED', data: { message: 'email ou password invalidos!' } };
+                return {
+                    status: 'UNAUTHORIZED',
+                    data: { message: 'email ou password invalidos!' }
+                };
             return { status: 'SUCCESSFUL', data: userEmail };
         });
     }

@@ -16,7 +16,7 @@ module.exports = {
         name:'Marcos',
         role:'admin',
         email:'admin@admin.com',
-        password: 'senhasupersecreta'
+        password: '$2a$10$TN6TwMIJRCbAT8LEgJQ4reSO.Yks65RoGVZbTH1.WOok569aBgbh.'
       }
     ])
   },
