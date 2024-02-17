@@ -12,7 +12,7 @@ movieController.findAll(req,res));
 router.get('/:id', (req: Request, res: Response)=>
 movieController.finById(req,res));
 
-router.post('/', (req,res) => movieController.creatMovie(req, res));
+router.post('/', (req,res) => movieController.createMovie(req, res));
 
 router.delete('/:id', (req: Request, res: Response) => movieController.deleteMovie(req,res));
 

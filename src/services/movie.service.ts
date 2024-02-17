@@ -4,7 +4,7 @@ import { IMovieModel } from '../interfaces/Movie/IMovieModel';
 import { ServiceMessage, ServiceResponse } from '../utils/ServiceResponse'; 
 import { ID } from '../interfaces';
 
-export default class ActorService {
+export default class MovieService {
         constructor(private movieModel:IMovieModel = new MovieModel()){}
 
     public async getAll(): Promise<ServiceResponse<IMovie[]>>
@@ -31,6 +31,6 @@ export default class ActorService {
     public async deleteMovie(id:ID): Promise<ServiceResponse<ServiceMessage>>{
         const exist = await this.movieModel.deleteMovie(id);
         if(!exist) return { status: 'NOT_FOUND', data: { message: 'Id não encontrado' } }
-        return { status: 'SUCCESSFUL', data: { message: 'Filme Deletado' } }
+        return { status: 'SUCCESSFUL', data: { message: 'Filme deletado' } }
     }
 }
