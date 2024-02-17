@@ -4,7 +4,9 @@
   "description": "",
   "main": "src/server.ts",
   "scripts": {
+    "db:reset": "npx tsc && npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all",
     "dev": "tsnd ."
+
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,10 @@
     "joi": "17.12.1",
     "mysql2": "3.9.1",
     "sequelize": "6.37.0",
-    "sequelize-cli": "6.6.2"
+    "sequelize-cli": "6.6.2",
+    "jsonwebtoken": "8.5.1",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "2.4.3"
   },
   "devDependencies": {
     "@types/cors": "2.8.17",
@@ -30,6 +35,8 @@
     "@types/sequelize": "4.28.20",
     "@typescript-eslint/eslint-plugin": "^5.37.0",
     "@typescript-eslint/parser": "^5.37.0",
+    "@types/jsonwebtoken": "8.5.6",
+    "@types/bcryptjs": "2.4.2",
     "eslint": "^8.23.1",
     "ts-node-dev": "2.0.0",
     "typescript": "5.3.3"
