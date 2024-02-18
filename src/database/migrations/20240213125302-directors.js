@@ -21,16 +21,8 @@ module.exports = {
       },
       age: {
         allowNull:false,
-        type: Sequelize.DATE
-      },
-      studio:{
-        allowNull:false,
-        type: Sequelize.STRING
-      },
-      movies:{
-        allowNull: false,
-        type: Sequelize.STRING
-      }    
+        type: Sequelize.INTEGER 
+      }
     })
   },
 

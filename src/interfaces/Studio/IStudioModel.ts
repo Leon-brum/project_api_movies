@@ -1,4 +1,4 @@
-import IStudio from './Studio';
+import IStudio from './IStudio';
 import { ID } from '..';
 
 export interface IStudioModel {

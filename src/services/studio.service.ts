@@ -1,11 +1,11 @@
 import StudioModel from '../model/StudioModel';
-import IStudio from '../interfaces/Studio/Studio';
+import IStudio from '../interfaces/Studio/IStudio';
 import { IStudioModel } from '../interfaces/Studio/IStudioModel'; 
 import { ID } from '../interfaces'; 
 import { ServiceMessage, ServiceResponse } from '../utils/ServiceResponse';
 
 export default class StudioService {
-    constructor(private studioModel: IStudioModel = new StudioModel() ){}
+    constructor(private studioModel: IStudioModel = new StudioModel()) {}
 
     public async getAll(): Promise<ServiceResponse<IStudio[]>>
     {

@@ -1,5 +1,5 @@
 import Movie from '../database/models/Movie';
-import IMovie from '../interfaces/Movie/Movie'
+import IMovie from '../interfaces/Movie/IMovie'
 import { IMovieModel } from '../interfaces/Movie/IMovieModel';
 
 export default class MovieModel implements IMovieModel {
@@ -10,12 +10,12 @@ export default class MovieModel implements IMovieModel {
         return movies;
     }
     
-    async findId(id: number): Promise<IMovie | null> {
+    async findById(id: number): Promise<IMovie | null> {
         const movie = await this.model.findByPk(id);
         return movie;
     }
     
-    async createMovie(name: string, gender: string, launch: Date): Promise<IMovie> {
+    async createMovie(name: string, gender: string, launch: number): Promise<IMovie> {
         const movie = await this.model.create({
             name,
             gender,

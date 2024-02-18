@@ -1,9 +1,9 @@
-import IMovie from './Movie';
+import IMovie from './IMovie';
 import { ID } from '..';
 
 export interface IMovieModel {
     findAll(): Promise<IMovie[]>,
-    findId(id:ID): Promise <IMovie | null>
+    findById(id:ID): Promise <IMovie | null>
 
     createMovie(
         name: IMovie['name'],
@@ -11,7 +11,6 @@ export interface IMovieModel {
         launch: IMovie['launch']
     ): Promise<IMovie>;
     deleteMovie(id:ID): Promise<boolean>
-
 }
 
 

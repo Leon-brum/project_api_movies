@@ -24,7 +24,7 @@ Movie.init({
     },
     launch: {
         allowNull: false,
-        type: sequelize_1.DataTypes.DATE
+        type: sequelize_1.DataTypes.INTEGER
     },
 }, {
     sequelize: _1.default,

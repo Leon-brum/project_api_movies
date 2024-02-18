@@ -5,5 +5,5 @@ export default interface Movie extends Identifiable {
     id: ID,
     name: string,
     gender: string,
-    launch: Date,
+    launch: number,
 }

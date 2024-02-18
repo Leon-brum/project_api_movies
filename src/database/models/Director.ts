@@ -29,7 +29,7 @@ Director.init({
   },
   age: {
     allowNull:false,
-    type: DataTypes.DATE
+    type: DataTypes.INTEGER
   }, 
 }, {
   sequelize: db,

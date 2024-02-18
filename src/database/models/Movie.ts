@@ -15,7 +15,7 @@ InferCreationAttributes<Movie>>{
 
   declare gender: string;
 
-  declare launch: Date;
+  declare launch: number;
 }
 
 Movie.init({
@@ -35,7 +35,7 @@ Movie.init({
   },
   launch: {
     allowNull: false,
-    type: DataTypes.DATE
+    type: DataTypes.INTEGER
   },
 }, {
   sequelize: db,
