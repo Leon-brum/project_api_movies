@@ -1,5 +1,5 @@
 import Studio from '../database/models/Studio';
-import IStudio from '../interfaces/Studio/Studio';
+import IStudio from '../interfaces/Studio/IStudio';
 import { IStudioModel } from '../interfaces/Studio/IStudioModel'; 
 
 export default class StudioModel implements IStudioModel { 

@@ -1,5 +1,5 @@
 import StudioModel from '../model/StudioModel';
-import IStudio from '../interfaces/Studio/Studio';
+import IStudio from '../interfaces/Studio/IStudio';
 import { IStudioModel } from '../interfaces/Studio/IStudioModel'; 
 import { ID } from '../interfaces'; 
 import { ServiceMessage, ServiceResponse } from '../utils/ServiceResponse';

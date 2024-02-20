@@ -17,4 +17,3 @@ router.post('/', (req,res) => movieController.createMovie(req, res));
 router.delete('/:id', (req: Request, res: Response) => movieController.deleteMovie(req,res));
 
 export default router; 
-

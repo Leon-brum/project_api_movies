@@ -1,5 +1,5 @@
 import Movie from '../database/models/Movie';
-import IMovie from '../interfaces/Movie/Movie'
+import IMovie from '../interfaces/Movie/IMovie'
 import { IMovieModel } from '../interfaces/Movie/IMovieModel';
 
 export default class MovieModel implements IMovieModel {

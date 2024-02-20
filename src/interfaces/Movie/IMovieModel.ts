@@ -1,4 +1,4 @@
-import IMovie from './Movie';
+import IMovie from './IMovie';
 import { ID } from '..';
 
 export interface IMovieModel {

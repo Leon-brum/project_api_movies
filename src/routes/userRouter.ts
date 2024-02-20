@@ -14,7 +14,9 @@ router.post('/',
 userValidations.login,
 (req, res) => userController.login(req, res));
 
-router.post('/create', (req, res) => userController.createUser(req, res));
+router.post('/create',
+userValidations.create,
+(req, res) => userController.createUser(req, res));
 
 router.delete('/:id', (req: Request, res: Response) => userController.deleteUser(req, res));
 

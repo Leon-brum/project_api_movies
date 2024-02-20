@@ -45,4 +45,23 @@ export default class userValidation {
       return res.status(401).json({ message: 'O token deve ser válido!' });
     }
   }
+
+  static async create(
+    req: Request,
+    res: Response,
+    next: NextFunction,
+  ): Promise<Response | void> {
+    const { name, email, password } = req.body;
+    const regex = /\S+@\S+\.\S+/;;
+    if(!regex.test(email)) {
+      return res.status(401).json({ message: 'Email inválido!' });
+    }
+    if(!email || !password || !name) {
+      return res.status(401).json({ message: 'Você deve preencher todos os campos!' })
+    }
+    if(password.length < 8) {
+      return res.status(401).json({ message: 'A senha deve ter pelo menos 8 caracteres!' })
+    }
+    return next();
+  }
 }

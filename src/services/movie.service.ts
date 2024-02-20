@@ -1,5 +1,5 @@
 import MovieModel from '../model/MovieModel';
-import IMovie from '../interfaces/Movie/Movie'
+import IMovie from '../interfaces/Movie/IMovie'
 import { IMovieModel } from '../interfaces/Movie/IMovieModel'; 
 import { ServiceMessage, ServiceResponse } from '../utils/ServiceResponse'; 
 import { ID } from '../interfaces';
