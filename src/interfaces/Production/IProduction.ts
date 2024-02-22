@@ -4,7 +4,7 @@ import { ID } from '..';
 export default interface IProduction extends Identifiable {
   id: ID,
   movieId: ID,
-  actorsId: ID,
+  actorsId?: number[],
   directorId: ID,
   studioId: ID,
 }

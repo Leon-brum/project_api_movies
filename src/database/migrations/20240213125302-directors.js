@@ -21,16 +21,20 @@ module.exports = {
       },
       age: {
         allowNull:false,
-        type: Sequelize.DATE
+        type: Sequelize.INTEGER
       },
-      studio:{
-        allowNull:false,
-        type: Sequelize.STRING
-      },
-      movies:{
+      movieId: {
         allowNull: false,
-        type: Sequelize.STRING
-      }    
+        type: Sequelize.INTEGER,
+        field: 'movie_id',
+        references:{
+          model:'movies',
+          key:'id',
+        },
+        primaryKey: true,
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      },
     })
   },
 

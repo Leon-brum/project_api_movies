@@ -7,12 +7,15 @@ import {
 } from 'sequelize';
 
 import db from '.';
+import Movie from './Movie';
 
 class Studio extends Model<InferAttributes<Studio>,
 InferCreationAttributes<Studio>>{
   declare id: CreationOptional<number>;
 
   declare name: string;
+
+  declare movieId: number;
 }
 
 Studio.init({
@@ -26,6 +29,11 @@ Studio.init({
     allowNull: false, 
     type: DataTypes.STRING
   },
+  movieId: {
+    allowNull: false,
+    type: DataTypes.INTEGER,
+    field: 'movie_id'
+  }
 }, {
   sequelize: db,
   underscored: true,
@@ -33,5 +41,6 @@ Studio.init({
   timestamps:false,
 })
 
-export default Studio;
+Studio.hasMany(Movie, { foreignKey: 'movieId', as: 'movies' })
 
+export default Studio;

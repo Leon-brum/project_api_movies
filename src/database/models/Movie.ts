@@ -6,6 +6,7 @@ import {
   CreationOptional,
 } from 'sequelize';
 import db from '.';
+import Gender from './Gender';
 
 class Movie extends Model<InferAttributes<Movie>,
 InferCreationAttributes<Movie>>{
@@ -16,6 +17,8 @@ InferCreationAttributes<Movie>>{
   declare gender: string;
 
   declare launch: Date;
+
+  declare genderId: number;
 }
 
 Movie.init({
@@ -37,12 +40,19 @@ Movie.init({
     allowNull: false,
     type: DataTypes.DATE
   },
+  genderId: {
+    allowNull: false,
+    type: DataTypes.INTEGER,
+    field: 'gender_id'
+  }
 }, {
   sequelize: db,
   underscored: true,
   modelName: 'movies',
   timestamps: false,
 });
+
+Movie.hasMany(Gender, { foreignKey: 'genderId', as: 'generous' });
 
 export default Movie;
   

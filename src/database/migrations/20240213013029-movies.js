@@ -19,9 +19,17 @@ module.exports = {
       allowNull: false,
       type: Sequelize.STRING
     },
-    gender: {
+    genderId: {
       allowNull: false,
-      type: Sequelize.STRING
+      type: Sequelize.INTEGER,
+      field: 'gender_id',
+      references:{
+        model:'generous',
+        key:'id',
+      },
+      primaryKey: true,
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
     },
     launch: {
       allowNull: false,

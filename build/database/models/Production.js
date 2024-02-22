@@ -41,7 +41,7 @@ Production.init({
 }, {
     sequelize: _1.default,
     underscored: true,
-    modelName: 'products',
+    modelName: 'productions',
     timestamps: false,
 });
 Production.belongsTo(Director_1.default, { foreignKey: 'directorId', as: 'director' });

@@ -6,6 +6,7 @@ import {
   CreationOptional,
 } from 'sequelize';
 import db from '.';
+import Movie from './Movie';
 
 class Director extends Model<InferAttributes<Director>,
 InferCreationAttributes<Director>>{
@@ -14,6 +15,8 @@ InferCreationAttributes<Director>>{
   declare name: string;
 
   declare age: number;
+
+  declare movieId: number;
 }
 
 Director.init({
@@ -31,11 +34,18 @@ Director.init({
     allowNull:false,
     type: DataTypes.DATE
   }, 
+  movieId: {
+    allowNull: false,
+    type: DataTypes.INTEGER,
+    field: 'movie_id'
+  }
 }, {
   sequelize: db,
   underscored: true,
   modelName: 'directors',
   timestamps: false,
 })
+
+Director.hasMany(Movie, { foreignKey: 'movieId', as: 'movies' })
 
 export default Director;

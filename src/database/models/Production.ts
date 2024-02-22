@@ -55,7 +55,7 @@ Production.init({
 }, {
   sequelize: db,
   underscored: true,
-  modelName: 'products',
+  modelName: 'productions',
   timestamps: false,
 });
 

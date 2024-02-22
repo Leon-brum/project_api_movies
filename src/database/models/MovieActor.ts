@@ -7,55 +7,54 @@ import {
 } from 'sequelize';
 import db from '.';
 import Movie from './Movie';
-import User from './User';
+import Actor from './Actor';
 
-class Wishlist extends Model<InferAttributes<Wishlist>,
-InferCreationAttributes<Wishlist>>{
+class MoiveActor extends Model<InferAttributes<MoiveActor>,
+InferCreationAttributes<MoiveActor>>{
   declare id: CreationOptional<number>;
 
   declare movieId: number;
 
-  declare userId: number;
+  declare actorId: number;
 
 }
 
-Wishlist.init({
+MoiveActor.init({
   id: {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
     type: DataTypes.INTEGER,
   },
-  userId: {
-    allowNull: false,
-    type: DataTypes.INTEGER,
-    field: 'user_id'
-  },
   movieId: {
     allowNull: false,
     type: DataTypes.INTEGER,
     field: 'movie_id'
   },
-
+  actorId: {
+    allowNull: false,
+    type: DataTypes.INTEGER,
+    field: 'actor_id'
+  }
 }, {
   sequelize: db,
   underscored: true,
-  modelName: 'wishlists',
+  modelName: 'movies_actors',
   timestamps: false,
 });
 
-User.belongsToMany(Movie, {
-  foreignKey: 'userId',
+Movie.belongsToMany(Actor, { 
+  foreignKey: 'movieId',
+  otherKey: 'actorId',
+  as: 'actors',
+  through: MoiveActor
+});
+Actor.belongsToMany(Movie, {
+  foreignKey: 'actorId',
   otherKey: 'movieId',
   as: 'movies',
-  through: Wishlist
-});
-Movie.belongsToMany(User, { 
-  foreignKey: 'movieId',
-  otherKey: 'userId',
-  as: 'users',
-  through: Wishlist
+  through: MoiveActor
 });
 
-export default Wishlist;
+export default MoiveActor;
   
