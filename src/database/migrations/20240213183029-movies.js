@@ -19,22 +19,34 @@ module.exports = {
       allowNull: false,
       type: Sequelize.STRING
     },
-    genderId: {
+    launch: {
+      allowNull: false,
+      type: Sequelize.DATE
+    },
+    directorId: {
       allowNull: false,
       type: Sequelize.INTEGER,
-      field: 'gender_id',
+      field: 'director_id',
       references:{
-        model:'generous',
+        model:'directors',
         key:'id',
       },
       primaryKey: true,
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     },
-    launch: {
+    studioId: {
       allowNull: false,
-      type: Sequelize.DATE
-    }
+      type: Sequelize.INTEGER,
+      field: 'studio_id',
+      references:{
+        model:'studios',
+        key:'id',
+      },
+      primaryKey: true,
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
+    },
    });
   },
 

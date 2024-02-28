@@ -16,7 +16,6 @@ InferCreationAttributes<Director>>{
 
   declare age: number;
 
-  declare movieId: number;
 }
 
 Director.init({
@@ -34,18 +33,11 @@ Director.init({
     allowNull:false,
     type: DataTypes.DATE
   }, 
-  movieId: {
-    allowNull: false,
-    type: DataTypes.INTEGER,
-    field: 'movie_id'
-  }
 }, {
   sequelize: db,
   underscored: true,
   modelName: 'directors',
   timestamps: false,
 })
-
-Director.hasMany(Movie, { foreignKey: 'movieId', as: 'movies' })
 
 export default Director;

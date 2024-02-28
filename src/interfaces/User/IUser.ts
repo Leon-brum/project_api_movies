@@ -7,4 +7,3 @@ export default interface User extends Identifiable {
   email: string,
   password: string,
 }
- 

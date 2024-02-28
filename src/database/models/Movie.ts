@@ -6,7 +6,8 @@ import {
   CreationOptional,
 } from 'sequelize';
 import db from '.';
-import Gender from './Gender';
+import Director from './Director';
+import Studio from './Studio';
 
 class Movie extends Model<InferAttributes<Movie>,
 InferCreationAttributes<Movie>>{
@@ -14,11 +15,11 @@ InferCreationAttributes<Movie>>{
 
   declare name: string;
 
-  declare gender: string;
-
   declare launch: Date;
 
-  declare genderId: number;
+  declare directorId: number;
+
+  declare studioId: number;
 }
 
 Movie.init({
@@ -32,18 +33,20 @@ Movie.init({
     allowNull: false,
     type: DataTypes.STRING
   },
-  gender: {
-    allowNull: false,
-    type: DataTypes.STRING
-  },
   launch: {
     allowNull: false,
     type: DataTypes.DATE
   },
-  genderId: {
-    allowNull: false,
+  directorId:{
+    allowNull:false,
     type: DataTypes.INTEGER,
-    field: 'gender_id'
+    field: 'director_id'
+  },
+  studioId:{
+    allowNull:false,
+    type: DataTypes.INTEGER,
+    field: 'studio_id'
+    
   }
 }, {
   sequelize: db,
@@ -52,7 +55,12 @@ Movie.init({
   timestamps: false,
 });
 
-Movie.hasMany(Gender, { foreignKey: 'genderId', as: 'generous' });
+
+Movie.belongsTo(Director, { foreignKey: 'directorId', as: 'director' });
+Movie.belongsTo(Studio, { foreignKey: 'studioId', as: 'studio' });
+
+Director.hasMany(Movie, { foreignKey: 'directorId', as: 'director' });
+Studio.hasMany(Movie, { foreignKey: 'studioId', as: 'studio' });
 
 export default Movie;
   

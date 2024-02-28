@@ -12,22 +12,6 @@ export default class MovieService {
         const movies = await this.movieModel.findAll();
         return { status: 'SUCCESSFUL', data: movies}
     }
-
-    public async getById(id:number):
-    Promise<ServiceResponse<IMovie | null>>{
-        const movie = await this.movieModel.findId(id);
-         if(!movie) return { status: 'NOT_FOUND', data: {message: 'O filme não foi encontrado!'}
-    }
-    return { status: 'SUCCESSFUL', data: movie}
-    }
-    
-    // eslint-disable-next-line max-len
-    public async createMovie(name:string, gender:string, launch:Date): Promise<ServiceResponse<IMovie>>{
-        const movie = await this.movieModel.createMovie(name,gender, launch);
-
-        return { status: 'SUCCESSFUL', data:movie }
-    }
-
     public async deleteMovie(id:ID): Promise<ServiceResponse<ServiceMessage>>{
         const exist = await this.movieModel.deleteMovie(id);
         if(!exist) return { status: 'NOT_FOUND', data: { message: 'Id não encontrado' } }

@@ -23,18 +23,6 @@ module.exports = {
         allowNull:false,
         type: Sequelize.INTEGER
       },
-      movieId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        field: 'movie_id',
-        references:{
-          model:'movies',
-          key:'id',
-        },
-        primaryKey: true,
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
-      },
     })
   },
 

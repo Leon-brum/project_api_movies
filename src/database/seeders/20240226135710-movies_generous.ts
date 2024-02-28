@@ -4,23 +4,19 @@ import { QueryInterface } from 'sequelize';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface: QueryInterface) {
-    await queryInterface.bulkInsert('actors',[
+    await queryInterface.bulkInsert('movies_generous',[
       {
-        name: 'Elijah Wood',
-        age: 43
+        movie_id: '1',
+        gender_id: '1'
       },
       {
-        name:'Ian McKellen',
-        age: 84
+        movie_id: '1',
+        gender_id: '2'
       },
-      {
-        name: 'Viggo Mortensen',
-        age: 65
-      }
     ])
   },
 
   async down (queryInterface: QueryInterface) {
-    await queryInterface.bulkDelete('actors', {});
+    await queryInterface.bulkDelete('movies_generous', {});
   }
 };

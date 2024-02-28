@@ -4,16 +4,23 @@ import { QueryInterface } from 'sequelize';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface: QueryInterface) {
-    await queryInterface.bulkInsert('movies',[
+    await queryInterface.bulkInsert('generous',[
       {
-        name: 'O Senhor dos Anéis: O Retorno do Rei',
-        gender: 'aventura',
-        launch: '2003-12-25'
+        name: 'Aventura',
+      },
+      {
+        name: 'Ação',
+      },
+      {
+        name: 'Terror',
+      },
+      {
+        name: 'Suspense',
       },
     ])
   },
 
   async down (queryInterface: QueryInterface) {
-    await queryInterface.bulkDelete('movies', {});
+    await queryInterface.bulkDelete('generous', {});
   }
 };

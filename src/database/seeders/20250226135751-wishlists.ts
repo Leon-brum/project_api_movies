@@ -4,17 +4,15 @@ import { QueryInterface } from 'sequelize';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface: QueryInterface) {
-    await queryInterface.bulkInsert('productions',[
+    await queryInterface.bulkInsert('wishlists',[
       {
-        movies_id: 1,
-        actors_id: 1,
-        director_id: 1,
-        studio_id: 1,
-      }
+        user_id: '1',
+        movie_id: '1'
+      },
     ])
   },
 
   async down (queryInterface: QueryInterface) {
-    await queryInterface.bulkDelete('productions', {});
+    await queryInterface.bulkDelete('wishlists', {});
   }
 };

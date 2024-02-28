@@ -2,40 +2,49 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('wishlists', {
+    /**
+    *
+    * @param {import('sequelize').QueryInterface} queryInterface
+    * @param {*} Sequelize
+    */
+    async up (queryInterface, Sequelize) {
+      await queryInterface.createTable('movies_generous', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        field: 'user_id',
-        references: {
-          model:'users',
-          key:'id',
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
-      },
       movieId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         field: 'movie_id',
-        references: {
+        references:{
           model:'movies',
           key:'id',
         },
+        primaryKey: true,
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
-      }
+      },
+      genderId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        field: 'gender_id',
+        references:{
+          model:'generous',
+          key:'id',
+        },
+        primaryKey: true,
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      },
     });
   },
 
   async down (queryInterface, _Sequelize) {
-    await queryInterface.dropTable('wishlists');
+    await queryInterface.dropTable('movies_generous')
+
   }
 };
+
