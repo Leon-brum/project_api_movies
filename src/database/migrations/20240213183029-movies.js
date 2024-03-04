@@ -21,7 +21,7 @@ module.exports = {
     },
     launch: {
       allowNull: false,
-      type: Sequelize.DATE
+      type: Sequelize.DATEONLY
     },
     directorId: {
       allowNull: false,

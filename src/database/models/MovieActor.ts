@@ -3,7 +3,6 @@ import {
   Model,
   InferAttributes,
   InferCreationAttributes,
-  CreationOptional,
 } from 'sequelize';
 import db from '.';
 import Movie from './Movie';
@@ -11,8 +10,6 @@ import Actor from './Actor';
 
 class MoiveActor extends Model<InferAttributes<MoiveActor>,
 InferCreationAttributes<MoiveActor>>{
-  declare id: CreationOptional<number>;
-
   declare movieId: number;
 
   declare actorId: number;
@@ -20,12 +17,6 @@ InferCreationAttributes<MoiveActor>>{
 }
 
 MoiveActor.init({
-  id: {
-    allowNull: false,
-    autoIncrement: true,
-    primaryKey: true,
-    type: DataTypes.INTEGER,
-  },
   movieId: {
     allowNull: false,
     type: DataTypes.INTEGER,
@@ -43,10 +34,13 @@ MoiveActor.init({
   timestamps: false,
 });
 
+MoiveActor.belongsTo(Movie, { foreignKey: 'movieId', as: 'movie' })
+MoiveActor.belongsTo(Actor, { foreignKey: 'actorId', as: 'actor' })
+
 Movie.belongsToMany(Actor, { 
-  foreignKey: 'movieId',
+  foreignKey: 'movieId', 
   otherKey: 'actorId',
-  as: 'actors',
+  as: 'actor',
   through: MoiveActor
 });
 Actor.belongsToMany(Movie, {

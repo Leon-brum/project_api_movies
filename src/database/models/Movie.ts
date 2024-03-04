@@ -15,7 +15,7 @@ InferCreationAttributes<Movie>>{
 
   declare name: string;
 
-  declare launch: Date;
+  declare launch: Date | string;
 
   declare directorId: number;
 
@@ -35,7 +35,7 @@ Movie.init({
   },
   launch: {
     allowNull: false,
-    type: DataTypes.DATE
+    type: DataTypes.DATEONLY
   },
   directorId:{
     allowNull:false,
@@ -55,12 +55,12 @@ Movie.init({
   timestamps: false,
 });
 
-
-Movie.belongsTo(Director, { foreignKey: 'directorId', as: 'director' });
 Movie.belongsTo(Studio, { foreignKey: 'studioId', as: 'studio' });
+Movie.belongsTo(Director, { foreignKey: 'directorId', as: 'director' });
 
 Director.hasMany(Movie, { foreignKey: 'directorId', as: 'director' });
 Studio.hasMany(Movie, { foreignKey: 'studioId', as: 'studio' });
+
 
 export default Movie;
   

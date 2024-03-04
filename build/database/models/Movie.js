@@ -22,7 +22,7 @@ Movie.init({
     },
     launch: {
         allowNull: false,
-        type: sequelize_1.DataTypes.DATE
+        type: sequelize_1.DataTypes.DATEONLY
     },
     directorId: {
         allowNull: false,
@@ -40,6 +40,8 @@ Movie.init({
     modelName: 'movies',
     timestamps: false,
 });
-Movie.hasMany(Director_1.default, { foreignKey: 'directorId', as: 'director' });
-Movie.hasMany(Studio_1.default, { foreignKey: 'studioId', as: 'studio' });
+Movie.belongsTo(Studio_1.default, { foreignKey: 'studioId', as: 'studio' });
+Movie.belongsTo(Director_1.default, { foreignKey: 'directorId', as: 'director' });
+Director_1.default.hasMany(Movie, { foreignKey: 'directorId', as: 'director' });
+Studio_1.default.hasMany(Movie, { foreignKey: 'studioId', as: 'studio' });
 exports.default = Movie;
