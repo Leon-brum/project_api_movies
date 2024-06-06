@@ -3,29 +3,20 @@ import {
   Model,
   InferAttributes,
   InferCreationAttributes,
-  CreationOptional,
 } from 'sequelize';
 import db from '.';
 import Movie from './Movie';
 import Gender from './Gender';
 
-class MoiveGender extends Model<InferAttributes<MoiveGender>,
-InferCreationAttributes<MoiveGender>>{
-  declare id: CreationOptional<number>;
-
+class MovieGender extends Model<InferAttributes<MovieGender>,
+InferCreationAttributes<MovieGender>>{
   declare movieId: number;
 
   declare genderId: number;
 
 }
 
-MoiveGender.init({
-  id: {
-    allowNull: false,
-    autoIncrement: true,
-    primaryKey: true,
-    type: DataTypes.INTEGER,
-  },
+MovieGender.init({
   movieId: {
     allowNull: false,
     type: DataTypes.INTEGER,
@@ -43,18 +34,21 @@ MoiveGender.init({
   timestamps: false,
 });
 
+MovieGender.belongsTo(Movie, { foreignKey: 'movieId', as: 'movie' })
+MovieGender.belongsTo(Gender, { foreignKey: 'genderId', as: 'gender' })
+
 Movie.belongsToMany(Gender, { 
   foreignKey: 'movieId',
   otherKey: 'genderId',
   as: 'generous',
-  through: MoiveGender
+  through: MovieGender
 });
 Gender.belongsToMany(Movie, {
   foreignKey: 'genderId',
   otherKey: 'movieId',
   as: 'movies',
-  through: MoiveGender
+  through: MovieGender
 });
 
-export default MoiveGender;
+export default MovieGender;
   
