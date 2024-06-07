@@ -10,12 +10,6 @@ const User_1 = __importDefault(require("./User"));
 class Wishlist extends sequelize_1.Model {
 }
 Wishlist.init({
-    id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: sequelize_1.DataTypes.INTEGER,
-    },
     userId: {
         allowNull: false,
         type: sequelize_1.DataTypes.INTEGER,
@@ -32,6 +26,8 @@ Wishlist.init({
     modelName: 'wishlists',
     timestamps: false,
 });
+Wishlist.belongsTo(Movie_1.default, { foreignKey: 'movieId', as: 'movie' });
+Wishlist.belongsTo(User_1.default, { foreignKey: 'userId', as: 'user' });
 User_1.default.belongsToMany(Movie_1.default, {
     foreignKey: 'userId',
     otherKey: 'movieId',
