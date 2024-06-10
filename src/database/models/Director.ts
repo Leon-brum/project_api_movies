@@ -5,8 +5,8 @@ import {
   InferCreationAttributes,
   CreationOptional,
 } from 'sequelize';
+
 import db from '.';
-import Movie from './Movie';
 
 class Director extends Model<InferAttributes<Director>,
 InferCreationAttributes<Director>>{
@@ -15,7 +15,6 @@ InferCreationAttributes<Director>>{
   declare name: string;
 
   declare age: number;
-
 }
 
 Director.init({
@@ -31,7 +30,7 @@ Director.init({
   },
   age: {
     allowNull:false,
-    type: DataTypes.DATE
+    type: DataTypes.INTEGER
   }, 
 }, {
   sequelize: db,
