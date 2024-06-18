@@ -5,11 +5,11 @@ services:
     ports:
       - 3005:3005
     environment:
-      - DB_USER=root
-      - DB_PASSWORD=password
-      - DB_NAME=api_movies
-      - DB_HOST=db
-      - JWT_SECRET=asmdlkoasojdijoasdjas
+      - DB_USER
+      - DB_PASSWORD
+      - DB_NAME
+      - DB_HOST
+      - JWT_SECRET
     volumes:
       - .:/app-backend
     container_name: movies_backend
@@ -21,5 +21,5 @@ services:
     ports:
       - 3307:3306
     environment:
-      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD
     restart: always

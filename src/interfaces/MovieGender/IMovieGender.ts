@@ -1,4 +1,4 @@
-import { Identifiable } from '..'; 
+//import { Identifiable } from '..'; 
 //import { ID } from '..'; 
 
 export default interface IMovieGender {

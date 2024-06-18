@@ -12,7 +12,7 @@ export default class WishlistModel implements IWishlistModel {
       include: [{
         model: User,
         as: 'user',
-        attributes: { exclude: ['id'] }
+        attributes: { exclude: ['id', 'password'] }
       },
       {
       model: Movie,
