@@ -77,7 +77,7 @@ A API estará disponível em `http://localhost:3005`.
 curl -X GET http://localhost:3005/movies
 ```
 
-# Resposta
+### Resposta
 [
   {
     "id": 1,
