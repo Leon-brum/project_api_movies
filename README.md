@@ -40,6 +40,10 @@ Este projeto é uma API de um banco de dados relacional voltado para o gerenciam
     ```bash
     docker-compose up --build
     ```
+    dentro do container:
+   ```bash
+    npm run db:reset
+    ```
 
 ## Uso
 
