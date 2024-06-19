@@ -119,7 +119,7 @@ api-filmes/
 ├── Dockerfile
 ├── package-lock.json
 ├── package.json
-├──README.md
+├── README.md
 └── tsconfig.json
 
 ### Tecnologias Utilizadas
