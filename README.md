@@ -99,27 +99,49 @@ curl -X GET http://localhost:3005/movies
 
 api-filmes/
 ├── src/
+
 │   ├── controllers/
+
 │   ├── database/
+
 │   ├── interfaces/
+
 │   ├── JWT/
+
 │   ├── middlewares/
+
 │   ├── model/
+
 │   ├── routes/
+
 │   ├── services/
+
 │   ├── utils/
+
 │   ├── app.ts
+
 │   └── server.ts
+
 ├── .env
+
 ├── .eslintignore
+
 ├── .eslintrc.json
+
 ├── .gitignore
+
 ├── .sequelizerc
+
 ├── docker-compose.yml
+
 ├── Dockerfile
+
 ├── package-lock.json
+
 ├── package.json
+
 ├── README.md
+
 └── tsconfig.json
 
 ### Tecnologias Utilizadas
