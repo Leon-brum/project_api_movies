@@ -21,7 +21,7 @@ Este projeto é uma API de um banco de dados relacional voltado para o gerenciam
 
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/seu-usuario/api-filmes.git
+    git clone https://github.com/Leon-brum/project_api_movies
     cd api-filmes
     ```
 
