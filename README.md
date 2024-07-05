@@ -163,5 +163,6 @@ Este projeto está licenciado sob a MIT License.
 
 ### Contato
 
-Email: leu-profissional@hotmail.com
+Email: leu-profissional@hotmail.com E marcosVieira23dev@gmail.com
 LinkedIn: (https://www.linkedin.com/in/leonardo-moreno-b8015a294/)
+LinkedIn: (https://www.linkedin.com/in/marcos-lucas-vieira-a1b61b200/)
